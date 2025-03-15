@@ -1,20 +1,26 @@
-import "./App.css";
-import About from "./components/About";
-import Header from "./components/Header";
-import Perfil from "./components/Perfil";
-import Skill from "./components/Skill";
-import Footer from "./components/Footer";
+import './App.css';
+import Header from './components/Header';
+import Home from './components/Home';
+import Project from './components/Project';
+import Service from './components/Service';
+import Experience from './components/Experience';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import GoToTop from './components/GoToTop';
 
 function App() {
     return (
         <>
             <Header />
             <main className="main">
-                <Perfil />
-                <About />
-                <Skill />
+                <Home />
+                <Project />
+                <Service />
+                <Experience />
+                <Contact />
             </main>
             <Footer />
+            <GoToTop />
         </>
     );
 }

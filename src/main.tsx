@@ -1,9 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
-createRoot(document.getElementById("root")!).render(
+import App from './App.tsx';
+
+createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <App />
-    </StrictMode>
+        <HashRouter>
+            <App />
+            <ToastContainer />
+        </HashRouter>
+    </StrictMode>,
 );

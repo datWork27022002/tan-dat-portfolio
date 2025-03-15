@@ -1,5 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Montserrat+Alternates:wght@400;500;600;700&display=swap");
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Montserrat+Alternates:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+    --color-white-color: var(--white-color);
+    --color-hue: var(--hue);
+    --color-first-color: var(--first-color);
+    --color-first-color-alt: var(--first-color-alt);
+    --color-white-color: var(--white-color);
+    --color-black-color: var(--black-color);
+    --color-text-color: var(--text-color);
+    --color-body-color: var(--body-color);
+    --color-container-color: var(--container-color);
+    --font-body-font: var(--body-font);
+    --font-second-font: var(--second-font);
+    --breakpoint-sm: 20rem;
+    --breakpoint-xs: 540px;
+}
 
 :root {
     --hue: 358;
@@ -12,15 +28,15 @@
     --container-color: hsl(var(--hue), 2%, 10%);
     --conic-gradient: conic-gradient(
         from 150deg at 50% 45%,
-        hsl(var(--hue), 80%, 20%) Odeg,
+        hsl(var(--hue), 80%, 20%) 0deg,
         hsl(var(--hue), 80%, 48%) 140deg,
         hsl(var(--hue), 80%, 20%) 360deg
     );
 
     /* Font and typography*/
     /*.5rem = 8px | 1rem = 16px ...*/
-    --body-font: "Montserrat Alternates", sans-serif;
-    --second-font: "Grechen Fuemen", cursive;
+    --body-font: 'Montserrat Alternates', sans-serif;
+    --second-font: 'Grechen Fuemen', cursive;
     --biggest-font-size: 2.5rem;
     --h1-font-size: 1.5rem;
     --h2-font-size: 1.25rem;
@@ -55,8 +71,8 @@
 /* base */
 * {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+    /* padding: 0;
+    margin: 0; */
 }
 
 html {
@@ -68,7 +84,7 @@ input,
 textarea,
 button {
     font-family: var(--body-color);
-    font-size: var(--normal-font-size);
+    /* font-size: var(--normal-font-size); */
 }
 
 body {
@@ -110,7 +126,7 @@ img {
     margin-inline: 1.5rem;
 }
 
-.grid {
+.grid-custom {
     display: grid;
     gap: 1.5rem;
 }
@@ -127,4 +143,94 @@ img {
 
 .main {
     overflow: hidden;
+}
+
+/* button */
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    /* background-color: var(--first-color); */
+    color: var(--white-color);
+    font-weight: var(--font-semi-bold);
+    padding: 1.25rem 2.5rem;
+    border-radius: 4rem;
+    transition: all 0.4s;
+}
+
+.button:hover {
+    background-color: var(--first-color-alt);
+}
+
+/* Scrollbar CSS */
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+    height: 1px;
+    background-color: hsl(0, 0%, 20%);
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: hsl(0, 0%, 30%);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: hsl(0, 0%, 40%);
+}
+
+/* Custom tippy tooltip */
+body {
+    .tippy-box {
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.375rem;
+        background-color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-content {
+        padding: 8px 9px;
+    }
+
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+        top: -8px;
+    }
+}
+
+/* for small devices */
+@media screen and (max-width: 320px) {
+    .container-custom {
+        margin-inline: 1rem;
+    }
+}
+
+/* for medium devices */
+@media screen and (min-width: 540px) {
+    .container-custom {
+        margin-inline: 1rem;
+        grid-template-columns: 380px;
+        justify-content: center;
+    }
+}
+
+/* for large devices */
+@media screen and (min-width: 1200px) {
+    .container-custom {
+        margin-inline: auto;
+    }
+
+    .section {
+        padding-block: 3rem 4rem;
+    }
+
+    .section__title {
+        font-size: var(--h1-font-size);
+        margin-bottom: 4rem;
+    }
 }
